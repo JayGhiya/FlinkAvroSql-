@@ -1,0 +1,11 @@
+{
+    "name" : "sampleData",
+    "namespace" : "com.flink.schema",
+    "type": "record",
+    "fields": [
+        {
+            "name" : "parameter",
+            "type" : "int"
+        }
+    ]
+}
