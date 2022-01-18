@@ -65,7 +65,7 @@
   <artifactId>avro.Flink.schema</artifactId>
   <version>1.0-SNAPSHOT</version>
   <scope>system</scope>
-  <systemPath>/Users/jayghiya/Documents/codebases/flink-avro-sql/schema-proj/FlinkSchema/target/avro.Flink.schema-1.0-SNAPSHOT.jar</systemPath>
+  <systemPath>/Users/jayghiya/Documents/codebases/flink-avro-sql/KafkaAvroProducerWithSchema/schema-proj/FlinkSchema/target/avro.Flink.schema-1.0-SNAPSHOT.jar</systemPath>
   </dependency>
   </dependencies>
 </project>
