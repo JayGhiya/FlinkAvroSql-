@@ -33,7 +33,7 @@ public class App
     {
         
         Producer<String, sampleData> producer = new KafkaProducer<String, sampleData>(properties);
-        ProducerRecord<String,sampleData> producerRecord = new ProducerRecord<String,sampleData>("test1", "testKey",prepareObj()); 
+        ProducerRecord<String,sampleData> producerRecord = new ProducerRecord<String,sampleData>("test2", "testKey",prepareObj()); 
         producer.send(producerRecord);
         producer.flush();
     }
