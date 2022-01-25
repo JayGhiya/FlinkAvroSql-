@@ -8,8 +8,8 @@
   <name>kafkaAvroProducer</name>
   <url>http://maven.apache.org</url>
 <properties>
-        <java.version>11</java.version>
-                <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
+    <java.version>11</java.version>
+    <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
    <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     </properties>

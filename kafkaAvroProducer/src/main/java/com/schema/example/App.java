@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import com.flink.schema.sampleData;
+import com.flink.schema.testSample;
+import com.flink.schema.parameter;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -24,18 +25,28 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer;
 public class App 
 {
 
-    private sampleData prepareObj()
+    private testSample prepareObj()
     {
-        return sampleData.newBuilder().setParameter(10).build();
+        return testSample.newBuilder().setA(10).setB(20).setC(30).build();
     }
 
-    public void sendData(Map<String, Object> properties)
+    public void sendDataToTopic1(Map<String, Object> properties)
     {
         
-        Producer<String, sampleData> producer = new KafkaProducer<String, sampleData>(properties);
-        ProducerRecord<String,sampleData> producerRecord = new ProducerRecord<String,sampleData>("test2", "testKey",prepareObj()); 
+        Producer<String, testSample> producer = new KafkaProducer<String, testSample>(properties);
+        ProducerRecord<String,testSample> producerRecord = new ProducerRecord<String,testSample>("test2", "testKey",prepareObj()); 
         producer.send(producerRecord);
         producer.flush();
+    }
+
+
+    public void sendDataToTopic2(Map<String, Object> properties)
+    {
+        
+        Producer<String, parameter> producer2 = new KafkaProducer<String, parameter>(properties);
+        ProducerRecord<String,parameter> producerRecord = new ProducerRecord<String,parameter>("test4", "testKey",parameter.newBuilder().setA(10).build()); 
+        producer2.send(producerRecord);
+        producer2.flush();
     }
 
     public static void main( String[] args )
@@ -46,9 +57,7 @@ public class App
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,KafkaAvroSerializer.class.getName());
         properties.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG,"http://localhost:8081");
         App app = new App();
-        app.sendData(properties);
-        
-
-        
+        app.sendDataToTopic1(properties);
+        app.sendDataToTopic2(properties);
     }
 }

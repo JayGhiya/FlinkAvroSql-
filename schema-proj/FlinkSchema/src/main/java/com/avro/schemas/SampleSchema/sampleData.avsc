@@ -1,10 +1,18 @@
 {
-    "name" : "sampleData",
+    "name" : "testSample",
     "namespace" : "com.flink.schema",
     "type": "record",
     "fields": [
         {
-            "name" : "parameter",
+            "name" : "A",
+            "type" : "int"
+        },
+        {
+            "name" : "B",
+            "type" : "int"
+        },
+        {
+            "name" : "C",
             "type" : "int"
         }
     ]
